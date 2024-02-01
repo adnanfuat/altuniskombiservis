@@ -98,10 +98,9 @@
             <div class="flex_genel_1 index_max_w_1" style=" justify-content: flex-end; " >
                 <div align="right" style="max-width:600px">
                             <div class="index_siparis_div_yazi" >
-                            Altuniş Teknik - Sizin İçin Teknik Çözümler Sunuyor!
-                            
+                            Altuniş Teknik 
                             <br/>
-                            Hizmetlerimiz hakkında bilgi almak için bize ulaşın...
+                            Sakarya'nın teknik servisi...
 
                             </div>
                             <div class="flex_genel_1">
