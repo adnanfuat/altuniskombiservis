@@ -1253,7 +1253,7 @@ a.antet_link:hover { text-decoration:underline;  }
   z-index: 99999999999999;   border-radius:0 5px 5px 5px;
 }
 
-.dropdown-content a { float: none; color:#ffffff;  padding: 5px 15px;  text-decoration: none; display: block; text-align: left; font-family: "Poppins", sans-serif; font-weight:300;}
+.dropdown-content a { float: none; color:#ffffff;  font-size: 14px;  padding: 2px 15px;  text-decoration: none; display: block; text-align: left; font-family: "Poppins", sans-serif; font-weight:300;}
 
 .topnav a:hover {
   background-color: #3498db;

@@ -14,7 +14,7 @@ transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
 margin: 0px 0px 0px 0px;
 padding: 21px 20px 20px 20px;
 background: #ffffff;
-min-height:300px;
+min-height:500px;
 border-radius: 30px;
 margin: 0 5px;
 }
