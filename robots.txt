@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: / 
+Disallow: /adminpnl
+Disallow: /inc_s

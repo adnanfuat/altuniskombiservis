@@ -1,0 +1,262 @@
+@charset "iso-8859-9";
+/* CSS Document */
+body {
+	background-color: #EFEFEF;
+	margin-left: 0px;
+	margin-top: 20px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.anabaslik
+{
+font-family:"Trebuchet MS";
+font-size:14px;
+color:#454545;
+font-weight:bold;
+height:40px;
+padding-left:5px;
+}
+.duzenle
+{
+font-family:Verdana;
+font-size:12px;
+color:#666666;
+text-decoration:none;
+font-weight:bold;
+}
+
+.galeri_altkategoriler
+{
+font-family:Verdana;
+font-size:12px;
+color:#999999;
+font-style:normal;
+text-decoration:none;
+}
+
+.textbox_yardim
+{
+font-family:Verdana;
+font-size:10px;
+color:#999999;
+font-style:normal;
+text-decoration:none;
+}
+
+.baslik
+{
+font-family:Tahoma;
+font-size:11px;
+color:#666666;
+font-weight:bold;
+font-style:normal;
+text-decoration:none;
+}
+
+.link_faaliyet
+{
+font-family:Tahoma;
+font-size:11px;
+color:#990066;
+font-style:normal;
+text-decoration:none;
+}
+.link_duzenle
+{
+font-family:Verdana;
+font-size:12px;
+color:#FF9966;
+font-weight:bold;
+font-style:normal;
+text-decoration:none;
+}
+.linkler
+{
+text-decoration:none;
+
+}
+.dugmeler
+{
+border:2px ;
+border-color: ; 
+border-style:outset;
+font-family: Verdana; 
+font-size: 12px; 
+font-style:normal;
+background-color: #FBFBFB;
+font-weight: bold;
+
+}
+.resim_sil
+{
+font-family:Verdana;
+font-size:11px;
+color:#D24400;
+text-decoration:none;
+}
+
+.dugmeler_ekle
+{
+border:1px ;
+border-color: ; 
+border-style:solid;
+font-family: Verdana; 
+font-size: 12px; 
+font-style:normal;
+background-color: #FFCC00;
+font-weight: bold;
+
+}
+
+
+.dugmeler_sil
+{
+	border:1px;
+	border-color: #000000;
+	border-style:solid;
+	font-family: Verdana;
+	font-size: 12px;
+	font-style:normal;
+	background-color: #CCCCCC;
+	color:#000000;
+	font-weight: bold;
+}
+
+
+.dugmeler_aktif
+{
+border:1px ;
+border-color: #000000; 
+border-style:solid;
+font-family: Verdana; 
+font-size: 12px; 
+font-style:normal;
+background-color: #D24400;
+color:#FFFFFF;
+font-weight: bold;
+
+}
+.dugmeler_tasima
+{
+border:1px ;
+border-color: #000000; 
+border-style:solid;
+font-family: Verdana; 
+font-size: 12px; 
+font-style:normal;
+background-color:#990066;
+color:#FFFFFF;
+font-weight: bold;
+
+}
+.altkategori
+{
+font-family:Tahoma;
+font-size:12px;
+color:#333333;
+text-decoration:none;
+font-weight:bold;
+}
+
+.table
+{
+border-style:solid;
+border-width:0;
+border-color:#000000;
+background-color:#FFFFFF;
+}
+
+.tdler
+{
+
+border-bottom-style:solid;
+border-bottom-width:2px;
+border-color:#CCCCCC;
+background-color:#F7F7F7;
+}
+.td_anabaslik
+{
+border-style:solid;
+border-width:1;
+border-color:#666666;
+background-color:#666666;
+}
+.sil_tdler 
+{
+border-style:ridge;
+border-width:0;
+border-color:#000000;
+background-color:#CCCCCC;
+}
+.aktif_tdler
+{
+border-style:ridge;
+border-width:0;
+border-color:#000000;
+background-color:#D24400;
+}
+.tasima_tdler
+{
+border-style:ridge;
+border-width:0;
+border-color:#000000;
+background-color:#990066;
+}
+
+.veri_baslik
+{
+font-family:Verdana;
+font-size:11px;
+color:#000000;
+text-decoration:none;
+}
+
+.veri_ana_baslik
+{
+font-family:Verdana;
+font-size:11px;
+color:#FFFFFF;
+text-decoration:none;
+font-weight:bold;
+}
+.veri_tarih
+{
+font-family:Verdana;
+font-size:10px;
+color:#666666;
+}
+.veri_detay
+{
+font-family:Verdana;
+font-size:11px;
+color:#000000;
+}
+.ekle_duzenle_baslik
+{
+font-family:Verdana;
+font-size:11px;
+color:#000000;
+}
+.hata1
+{
+font-family:Verdana;
+font-size:11px;
+color:#FF0000;
+}
+.textbox1
+{
+border-style:solid;
+border-color:#000000;
+border-width:1;
+font-family:Verdana;
+font-size:11px;
+color:#000000;
+background-color:#FBFBFB;
+}
+.kayit_yok
+{
+font-family:Tahoma;
+font-size:14px;
+color:#666666;
+font-weight:bold;
+}

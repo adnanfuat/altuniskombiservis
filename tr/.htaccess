@@ -1,0 +1,257 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} ^(HEAD|TRACE|DELETE|TRACK) [NC,OR]
+RewriteCond %{REQUEST_URI} ^/(,|;|<|>|/{2,999}).* [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^(java|curl|wget).* [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^.*(winhttp|HTTrack|clshttp|archiver|loader|email|harvest|extract|grab|miner).* [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^.*(libwww|curl|wget|python|nikto|scan).* [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^.*(<|>|'|%0A|%0D|%27|%3C|%3E|%00).* [NC,OR]
+RewriteCond %{HTTP_COOKIE} ^.*(<|>|'|%0A|%0D|%27|%3C|%3E|%00).* [NC,OR]
+RewriteCond %{QUERY_STRING} ^.*(localhost|loopback|127\.0\.0\.1).* [NC,OR]
+RewriteCond %{QUERY_STRING} ^.*(<|>|'|%0A|%0D|%27|%3C|%3E|%00).* [NC,OR]
+<IfModule mod_expires.c>
+
+    ExpiresActive on
+    ExpiresDefault                                      "access plus 1 month"
+
+  # CSS
+    ExpiresByType text/css                              "access plus 1 year"
+
+  # Data interchange
+    ExpiresByType application/atom+xml                  "access plus 1 hour"
+    ExpiresByType application/rdf+xml                   "access plus 1 hour"
+    ExpiresByType application/rss+xml                   "access plus 1 hour"
+
+    ExpiresByType application/json                      "access plus 0 seconds"
+    ExpiresByType application/ld+json                   "access plus 0 seconds"
+    ExpiresByType application/schema+json               "access plus 0 seconds"
+    ExpiresByType application/vnd.geo+json              "access plus 0 seconds"
+    ExpiresByType application/xml                       "access plus 0 seconds"
+    ExpiresByType text/xml                              "access plus 0 seconds"
+
+  # Favicon (cannot be renamed!) and cursor images
+    ExpiresByType image/vnd.microsoft.icon              "access plus 1 week"
+    ExpiresByType image/x-icon                          "access plus 1 week"
+
+  # HTML
+    ExpiresByType text/html                             "access plus 0 seconds"
+
+  # JavaScript
+    ExpiresByType application/javascript                "access plus 1 year"
+    ExpiresByType application/x-javascript              "access plus 1 year"
+    ExpiresByType text/javascript                       "access plus 1 year"
+
+  # Manifest files
+    ExpiresByType application/manifest+json             "access plus 1 year"
+
+    ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
+    ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+
+  # Media files
+    ExpiresByType audio/ogg                             "access plus 1 year"
+    ExpiresByType image/bmp                             "access plus 1 year"
+    ExpiresByType image/gif                             "access plus 1 year"
+    ExpiresByType image/jpeg                            "access plus 1 year"
+    ExpiresByType image/png                             "access plus 1 year"
+    ExpiresByType image/svg+xml                         "access plus 1 year"
+    ExpiresByType image/webp                            "access plus 1 year"
+    ExpiresByType video/mp4                             "access plus 1 year"
+    ExpiresByType video/ogg                             "access plus 1 year"
+    ExpiresByType video/webm                            "access plus 1 year"
+
+  # Web fonts
+
+    # Embedded OpenType (EOT)
+    ExpiresByType application/vnd.ms-fontobject         "access plus 1 month"
+    ExpiresByType font/eot                              "access plus 1 month"
+
+    # OpenType
+    ExpiresByType font/opentype                         "access plus 1 month"
+
+    # TrueType
+    ExpiresByType application/x-font-ttf                "access plus 1 month"
+
+    # Web Open Font Format (WOFF) 1.0
+    ExpiresByType application/font-woff                 "access plus 1 month"
+    ExpiresByType application/x-font-woff               "access plus 1 month"
+    ExpiresByType font/woff                             "access plus 1 month"
+
+    # Web Open Font Format (WOFF) 2.0
+    ExpiresByType application/font-woff2                "access plus 1 month"
+
+  # Other
+    ExpiresByType text/x-cross-domain-policy            "access plus 1 week"
+
+</IfModule>
+
+<IfModule mod_deflate.c>
+  # Compress HTML, CSS, JavaScript, Text, XML and fonts
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+  AddOutputFilterByType DEFLATE application/x-font
+  AddOutputFilterByType DEFLATE application/x-font-opentype
+  AddOutputFilterByType DEFLATE application/x-font-otf
+  AddOutputFilterByType DEFLATE application/x-font-truetype
+  AddOutputFilterByType DEFLATE application/x-font-ttf
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE font/opentype
+  AddOutputFilterByType DEFLATE font/otf
+  AddOutputFilterByType DEFLATE font/ttf
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE image/x-icon
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+
+  # Remove browser bugs (only needed for really old browsers)
+  BrowserMatch ^Mozilla/4 gzip-only-text/html
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+  Header append Vary User-Agent
+</IfModule>
+
+SetOutputFilter DEFLATE
+SetEnvIfNoCase Request_URI "\.(?:gif|jpe?g|png)$" no-gzip
+ReWriteRule ^kurumsal$ hakkimizda.php [L,NC]
+ReWriteRule ^referanslar-(.*).html$ referanslar.php?sayfa_no=$1 [L,NC]
+
+ReWriteRule ^referanslar$ referanslar.php [L,NC]
+ReWriteRule ^rf/(.*)$ referans_detay.php?ht=$1 [L,NC]
+
+ReWriteRule ^iletisim$ iletisim.php [L,NC]
+ReWriteRule ^index$ index.php [L,NC]
+
+ReWriteRule ^urunler_uk.html$ urunler_uk.php [L,NC]
+ReWriteRule ^ualtkategori/(.*)/?$ urunler_ak.php?ht=$1 [L,NC]
+ReWriteRule ^urun-(.*)-(.*).html$ urun.php?id=$2&baslik=$1 [L,NC]
+ReWriteRule ^urunler/(.*)/?$ urunler.php?akht=$1 [L,NC]
+ReWriteRule ^urnlr/(.*)/?$ urunler.php?ukht=$1 [L,NC]
+ReWriteRule ^u/(.*)/(.*)/?$ urun.php?ht=$2&uht=$1 [L,NC]
+
+ReWriteRule ^urun-kategorileri/?$ urunler_uk.php [L,NC]
+ReWriteRule ^urun-altkategorileri/(.*)/?$ urunler_ak.php?ht=$1 [L,NC]
+ReWriteRule ^urun-alt-kategorileri/(.*)/?$ urunler_ak.php?uht=$1 [L,NC]
+ReWriteRule ^urunler/(.*)/?$ urunler.php?akht=$1 [L,NC]
+ReWriteRule ^urun/(.*)/?$ urunler.php?ukht=$1 [L,NC]
+ReWriteRule ^u/(.*)/(.*)/?$ urun.php?ht=$2&uht=$1 [L,NC]
+
+ReWriteRule ^haberler-(.*)$ haberler.php?sayfa_no=$1 [L,NC]
+ReWriteRule ^haberler$ haberler.php [L,NC]
+ReWriteRule ^g-(.*)-(.*)$ haber_detay.php?id=$2&baslik=$1 [L,NC]
+ReWriteRule ^g/(.*)$ haber_detay.php?ht=$1 [L,NC]
+
+
+ReWriteRule ^acenteler-(.*).html$ acenteler.php?sayfa_no=$1 [L,NC]
+ReWriteRule ^acentesi-oldugumuz-sigorta-sirketleri$ acenteler.php [L,NC]
+ReWriteRule ^a-(.*)-(.*).html$ acente_detay.php?id=$2&baslik=$1 [L,NC]
+ReWriteRule ^a/(.*)$ acente_detay.php?ht=$1 [L,NC]
+
+ReWriteRule ^etiket-(.*)$ etiketler.php?sayfa_no=$1 [L,NC]
+ReWriteRule ^etiket$ etiketler.php [L,NC]
+ReWriteRule ^e-(.*)-(.*)$ etiket_detay.php?id=$2&baslik=$1 [L,NC]
+ReWriteRule ^e/(.*)$ etiket_detay.php?ht=$1 [L,NC]
+
+
+#ReWriteRule ^haberler/(.*)$ haberler.php?sayfa_no=$1 [L,NC]
+#ReWriteRule ^haberler$ haberler.php [L,NC]
+
+
+ReWriteRule ^hizmetler-(.*)$ hizmetler.php?sayfa_no=$1 [L,NC]
+ReWriteRule ^hizmetler$ hizmetler.php [L,NC]
+ReWriteRule ^h-(.*)-(.*).html$ hizmet_detay.php?id=$2&baslik=$1 [L,NC]
+ReWriteRule ^h-(.*)-(.*).html$ hizmet.php?id=$2&baslik=$1 [L,NC]
+
+ReWriteRule ^sakarya-sigorta-hizmetleri/(.*)$ hizmetler.php?sayfa_no=$1 [L,NC]
+ReWriteRule ^sakarya-sigorta-hizmetleri$ hizmetler.php [L,NC]
+ReWriteRule ^hzmt/(.*)$ hizmet_detay.php?ht=$1 [L,NC]
+ReWriteRule ^hd/(.*)$ hizmet_detay_icerik.php?ht=$1 [L,NC]
+
+
+#ReWriteRule ^restoranlar/(.*).html$ restoranlar.php?sayfa_no=$1 [L,NC]
+#ReWriteRule ^restoranlar$ restoranlar.php [L,NC]
+ReWriteRule ^restoranlar-(.*).html$ restoranlar.php?sayfa_no=$1 [L,NC]
+ReWriteRule ^restoranlar.html$ restoranlar.php [L,NC]
+ReWriteRule ^restoran/(.*)$ restoran_detay.php?ht=$1 [L,NC]
+ReWriteRule ^rest/(.*)$ restoran.php?ht=$1 [L,NC]
+
+
+ReWriteRule ^galeri_uk.html$ galeri_uk.php [L,NC]
+ReWriteRule ^galeri_ak-(.*)-(.*).html$ galeri_ak.php?id=$2&baslik=$1 [L,NC]
+ReWriteRule ^resim-(.*)-(.*).html$ resim.php?id=$2&baslik=$1 [L,NC]
+ReWriteRule ^resimler-(.*)-(.*)-(.*)-(.*).html$ resimler.php?id=$2&uk=$3&sayfa_no=$4&baslik=$1 [L,NC]
+
+ReWriteRule ^gk/?$ galeri_uk.php [L,NC]
+ReWriteRule ^gak/(.*)/?$ galeri_ak.php?ht=$1 [L,NC]
+ReWriteRule ^guak/(.*)/?$ galeri_ak.php?uht=$1 [L,NC]
+ReWriteRule ^resimler/(.*)/?$ resimler.php?akht=$1 [L,NC]
+ReWriteRule ^galeri/(.*)/?$ resimler.php?ukht=$1 [L,NC]
+ReWriteRule ^r/(.*)/(.*)/?$ resim.php?ht=$2&uht=$1 [L,NC]
+
+
+ReWriteRule ^proje-kategorileri/?$ projeler_uk.php [L,NC]
+ReWriteRule ^proje-altkategorileri/(.*)/?$ projeler_ak.php?ht=$1 [L,NC]
+ReWriteRule ^proje-alt-kategorileri/(.*)/?$ projeler_ak.php?uht=$1 [L,NC]
+ReWriteRule ^projeler/(.*)/?$ projeler.php?akht=$1 [L,NC]
+ReWriteRule ^proje/(.*)/?$ projeler.php?ukht=$1 [L,NC]
+ReWriteRule ^p/(.*)/(.*)/?$ proje.php?ht=$2&uht=$1 [L,NC]
+
+ReWriteRule ^insankaynaklari$ ik.php [L,NC]
+ReWriteRule ^videolar-(.*).html$ videolar.php?sayfa_no=$1 [L,NC]
+ReWriteRule ^videolar$ videolar.php [L,NC]
+ReWriteRule ^v-(.*)-(.*)$ video_detay.php?id=$2&baslik=$1 [L,NC]
+ReWriteRule ^v/(.*)$ video_detay.php?ht=$1 [L,NC]
+
+ReWriteRule ^misyon$ misyon.php [L,NC]
+ReWriteRule ^vizyon$ vizyon.php [L,NC]
+ReWriteRule ^kalite$ kalite.php [L,NC]
+ReWriteRule ^ilkeler$ ilkeler.php [L,NC]
+ReWriteRule ^makine-parkuru$ makine_parkuru.php [L,NC]
+ReWriteRule ^hasar-bildirim$ hasar_bildirim.php [L,NC]
+ReWriteRule ^kasko-sigortasi-teklifi-al$ kasko_sigortasi_teklifi_al.php [L,NC]
+ReWriteRule ^konut-sigortasi-teklifi-al$ konut_sigortasi_teklifi_al.php [L,NC]
+ReWriteRule ^saglik-sigortasi-teklifi-al$ saglik_sigortasi_teklifi_al.php [L,NC]
+ReWriteRule ^trafik-sigortasi-teklifi-al$ trafik_sigortasi_teklifi_al.php [L,NC]
+ReWriteRule ^anlasmali-arac-cam-servis-bul$ anlasmali_arac_cam_servis_bul.php [L,NC]
+ReWriteRule ^anlasmali-saglik-kurumu-bul$ anlasmali_saglik_kurumu_bul.php [L,NC]
+ReWriteRule ^anlasmali-arac-servis-bul$ anlasmali_arac_servis_bul.php [L,NC]
+ReWriteRule ^hasar-dosya-sorgulama$ hasar_dosya_sorgulama.php [L,NC]
+ReWriteRule ^turbo-jet-hasar-odemesi$ turbo_jet_hasar_odemesi.php [L,NC]
+ReWriteRule ^odeme$ odeme.php [L,NC]
+ReWriteRule ^arama$ arama.php [L,NC]
+ReWriteRule ^hedefler$ hedefler.php [L,NC]
+ReWriteRule ^subeler$ subeler.php [L,NC]
+ReWriteRule ^pratik-bilgiler$ pratik_bilgiler.php [L,NC]
+ReWriteRule ^makine-parkuru-(.*).html$ makine_parkuru.php?sayfa_no=$1 [L,NC]
+ReWriteRule ^makine-parkuru.html$ makine_parkuru.php [L,NC]
+ReWriteRule ^m-(.*)-(.*).html$ makine_parkuru_detay.php?id=$2&baslik=$1 [L,NC]
+ReWriteRule ^m/(.*)$ makine_parkuru_detay.php?ht=$1 [L,NC]
+ReWriteRule ^is-makinalari.html$ is_makinalari.php [L,NC]
+ReWriteRule ^yedek-parca.html$ yedek_parca.php [L,NC]
+ReWriteRule ^ikinciel-is-makinalari.html$ ikinciel_is_makinalari.php [L,NC]
+
+
+ReWriteRule ^sakarya_personel_ve_ogrenci_tasimaciligi.html$ sakarya_personel_ve_ogrenci_tasimaciligi.php [L,NC]
+ReWriteRule ^restoran_apetit.html$ restoran_apetit.php [L,NC]
+ReWriteRule ^aystown_kart.html$ aystown_kart.php [L,NC]
+ReWriteRule ^firsatlar.html$ firsatlar.php [L,NC]
+ReWriteRule ^kurumsal.html$ kurumsal.php [L,NC]
+ReWriteRule ^cocuk.html$ cocuk.php [L,NC]
+ReWriteRule ^degerler.html$ degerler.php [L,NC]
+ReWriteRule ^sertifikalar$ sertifikalar.php [L,NC]
+ReWriteRule ^markalar$ markalar.php [L,NC]
+ReWriteRule ^ziyaretci_defteri_form$ ziyaretci_defteri_form.php [L,NC]
+ReWriteRule ^ne-dediler$ ziyaretci_defteri_mesajlar.php [L,NC]
+ReWriteRule ^servis_talep.html$ servis_talep.php [L,NC]
+ReWriteRule ^teklif_talep.html$ teklif_talep.php [L,NC]
+ReWriteRule ^yapim.html$ yapim.php [L,NC]
+ReWriteRule ^neden-celik-yapi$ neden_celik_yapi.php [L,NC]
+ReWriteRule ^ihracat-ulkeleri$ ihracat_ulkeleri.php [L,NC]
+ReWriteRule ^defne-yapragi$ defne_yapragi.php [L,NC]
+ReWriteRule ^defne-yagi$ defne_yagi.php [L,NC]
+ReWriteRule ^kataloglar$ kataloglar.php [L,NC]
+ErrorDocument 404 http://www.sakaryakombiservis.com.tr/

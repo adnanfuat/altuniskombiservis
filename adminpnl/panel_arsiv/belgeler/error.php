@@ -1,0 +1,1 @@
+<?  header("Location:".$uzaklik."error/err3.php"); ?>
