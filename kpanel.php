@@ -49,7 +49,7 @@ body { margin:0; 	background:url(_img/lock-screen.jpg) top center #29242a no-rep
           
            
                 <input type="hidden" value="yonetici" name="kullanici">
-                <button type="submit" class="form_buton"><i class="fas fa-sign-in-alt"></i> Giriş Yap</button><br />
+                <button type="submit" class="form_buton"><i class="fas fa-sign-in-alt"></i> GİRİŞ YAP </button><br />
             
 				<? 
                     if (isset($_GET["hata"]))
